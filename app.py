@@ -52,9 +52,12 @@ if st.button("Calculate"):
     T_outshell = T_inshell + Q / C_cold
 
     # --- LMTD ---
-    lmtd = (T_intube - T_outshell - T_outtube + T_inshell) / math.log(
-        (T_intube - T_outshell) / (T_outtube - T_inshell)
-    )
+    if (T_intube - T_outshell) != 0 and (T_outtube - T_inshell) != 0:
+        lmtd = (T_intube - T_outshell - T_outtube + T_inshell) / math.log(
+            (T_intube - T_outshell) / (T_outtube - T_inshell)
+        )
+    else:
+        lmtd = T_intube - T_outtube
 
     # --- Correction Factor ---
     def calculate_correction_factor(T1, T2, t1, t2):

@@ -1,7 +1,7 @@
 import streamlit as st
 import math
 import numpy as np
-from CoolProp.CoolProp import PropsSI
+
 
 st.title("🔧 Heat Exchanger Calculator")
 
@@ -13,8 +13,8 @@ T2 = 305
 P = 101325  # Pressure in Pa
 cp = 4182
 k = 0.6
-Pr_tube = PropsSI("PRANDTL", "T", T1, "P", P, "Water")
-Pr_shell = PropsSI("PRANDTL", "T", T2, "P", P, "Water")
+Pr_tube = 2.3246
+Pr_shell = 5.1928
 t = 1.27e-3
 k_copper = 390
 
